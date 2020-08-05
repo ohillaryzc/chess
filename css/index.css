@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    height: 750px;
+    margin: 100px auto 0;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+}
+.item-row {
+    display: flex;
+    flex: 1;
+}
+.item-row-line {
+    flex: 1;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+.item-col {
+    flex: 1;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
