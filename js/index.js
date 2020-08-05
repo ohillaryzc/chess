@@ -9,13 +9,39 @@ const black = [
   { name: '象', x: 6, y: 9 },
   { name: '马', x: 7, y: 9 },
   { name: '車', x: 8, y: 9 },
+  { name: '炮', x: 1, y: 7 },
+  { name: '炮', x: 7, y: 7 },
+  { name: '卒', x: 0, y: 6 },
+  { name: '卒', x: 2, y: 6 },
+  { name: '卒', x: 4, y: 6 },
+  { name: '卒', x: 6, y: 6 },
+  { name: '卒', x: 8, y: 6 }
 ]
-const red = []
+const red = [
+  { name: '車', x: 0, y: 0 },
+  { name: '马', x: 1, y: 0 },
+  { name: '象', x: 2, y: 0 },
+  { name: '士', x: 3, y: 0 },
+  { name: '将', x: 4, y: 0 },
+  { name: '士', x: 5, y: 0 },
+  { name: '象', x: 6, y: 0 },
+  { name: '马', x: 7, y: 0 },
+  { name: '車', x: 8, y: 0 },
+  { name: '炮', x: 1, y: 2 },
+  { name: '炮', x: 7, y: 2 },
+  { name: '卒', x: 0, y: 3 },
+  { name: '卒', x: 2, y: 3 },
+  { name: '卒', x: 4, y: 3 },
+  { name: '卒', x: 6, y: 3 },
+  { name: '卒', x: 8, y: 3 }
+]
 class Chess {
   constructor(container) {
     this.container = container
     this.black = black
     this.red = red
+    this.h = 750 / 9
+    this.w = 750 / 8
   }
 
   init () {
@@ -36,6 +62,14 @@ class Chess {
       }
     }
     // 初始化棋子位置
-
+    this.black.concat(this.red).forEach(item => {
+      const e = document.createElement('div')
+      e.className = 'item-chess'
+      e.style.bottom = this.h * item.y - 25 + 'px'
+      e.style.left = this.w * item.x - 25 + 'px'
+      e.innerText = item.name
+      item.dom = e
+      this.container.appendChild(e)
+    })
   }
 }
